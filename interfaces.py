@@ -8,10 +8,10 @@ import Queue
 import threading
 import socket
 import itertools
-from gestalt.utilities import notice
-from gestalt import packets
-from gestalt import functions
-from gestalt import core
+from pygestalt.utilities import notice
+from pygestalt import packets
+from pygestalt import functions
+from pygestalt import core
 
 
 #----INTERFACE CLASSES------------

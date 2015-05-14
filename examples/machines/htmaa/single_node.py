@@ -4,15 +4,15 @@
 #
 
 #------IMPORTS-------
-from gestalt import nodes
-from gestalt import interfaces
-from gestalt import machines
-from gestalt import functions
-from gestalt.machines import elements
-from gestalt.machines import kinematics
-from gestalt.machines import state
-from gestalt.utilities import notice
-from gestalt.publish import rpc	#remote procedure call dispatcher
+from pygestalt import nodes
+from pygestalt import interfaces
+from pygestalt import machines
+from pygestalt import functions
+from pygestalt.machines import elements
+from pygestalt.machines import kinematics
+from pygestalt.machines import state
+from pygestalt.utilities import notice
+from pygestalt.publish import rpc	#remote procedure call dispatcher
 import time
 import io
 

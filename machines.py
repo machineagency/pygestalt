@@ -1,7 +1,7 @@
 #--IMPORTS-----
-from gestalt import utilities
-from gestalt.utilities import notice as notice
-from gestalt.publish import publish
+from pygestalt import utilities
+from pygestalt.utilities import notice as notice
+from pygestalt.publish import publish
 import math
 import copy
 import threading

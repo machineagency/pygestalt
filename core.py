@@ -5,7 +5,7 @@
 #--IMPORTS-----
 import threading
 from functools import partial	#currying for forwarding function calls to actionObjects
-from gestalt.utilities import notice as notice
+from pygestalt.utilities import notice as notice
 
 class actionObject(object):
 	def __init__(self, serviceRoutine):

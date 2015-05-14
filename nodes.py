@@ -6,12 +6,12 @@ import time
 import os
 import urllib
 import math
-from gestalt.utilities import notice as notice
-from gestalt import interfaces
-from gestalt import functions
-from gestalt import packets
-from gestalt import utilities
-from gestalt import core
+from pygestalt.utilities import notice as notice
+from pygestalt import interfaces
+from pygestalt import functions
+from pygestalt import packets
+from pygestalt import utilities
+from pygestalt import core
 
 
 #----NODE SHELLS------------

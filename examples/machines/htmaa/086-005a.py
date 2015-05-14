@@ -1,9 +1,9 @@
-from gestalt import nodes
-from gestalt import utilities
-from gestalt.utilities import notice
-from gestalt import functions as functions
-from gestalt import packets as packets
-from gestalt import core
+from pygestalt import nodes
+from pygestalt import utilities
+from pygestalt.utilities import notice
+from pygestalt import functions as functions
+from pygestalt import packets as packets
+from pygestalt import core
 import time
 import math
 

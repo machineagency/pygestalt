@@ -1,11 +1,11 @@
-# gestalt.functions
+# pygestalt.functions
 #
-# Contains the basic elements for building Gestalt functions.
+# Contains the basic elements for building pyGestalt functions.
 
 #----IMPORTS------------
-from gestalt.machines import coordinates
-from gestalt import utilities
-from gestalt import core
+from pygestalt.machines import coordinates
+from pygestalt import utilities
+from pygestalt import core
 import time
 import Queue
 import threading

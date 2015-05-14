@@ -1,5 +1,5 @@
 #----IMPORTS------------
-from gestalt import utilities
+from pygestalt import utilities
 #--PACKETS--------------
 #
 # A Gestalt class for encoding and decoding data packets

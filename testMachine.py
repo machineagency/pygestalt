@@ -1,7 +1,7 @@
-from gestalt.Nodes import printrboard
-from gestalt import nodes
-from gestalt.Nodes import dummyNode
-from gestalt import interfaces
+from pygestalt.Nodes import printrboard
+from pygestalt import nodes
+from pygestalt.Nodes import dummyNode
+from pygestalt import interfaces
 
 #myPrintrboard = nodes.soloIndependentNode(name = 'myPrintrboard', module = printrboard)
 #gsArduino = nodes.soloGestaltNode(name = 'gsArduino1')
