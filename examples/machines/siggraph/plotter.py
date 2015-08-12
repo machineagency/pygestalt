@@ -98,9 +98,9 @@ if __name__ == '__main__':
 			coor.append(xyz[0]) #x
 			coor.append(xyz[1]) #y1
 			coor.append(xyz[1]) #y2
-			if int(xyz[2]) == 1:
+			if float(xyz[2]) == 1:
 				coor.append(penup)
-			if int(xyz[2]) == 0:
+			if float(xyz[2]) == 0:
 				coor.append(0)	
 		except: 
 			pass

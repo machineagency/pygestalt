@@ -92,8 +92,8 @@ if __name__ == '__main__':
 		xyy = line.split(',')
 		coor = []
 		try:
-			coor.append(xyy[0]) #x
 			coor.append(xyy[1]) #y1
+			coor.append(xyy[0]) #x
 			coor.append(xyy[2]) #y2
 		except:
 			pass
