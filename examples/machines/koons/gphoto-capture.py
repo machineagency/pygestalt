@@ -38,7 +38,7 @@ class virtualMachine(machines.virtualMachine):
 		else: self.fabnet = interfaces.gestaltInterface('FABNET', interfaces.serialInterface(baudRate = 115200, interfaceType = 'ftdi', portName = '/dev/ttyUSB0'))
 		
 	def initControllers(self):
-		self.aAxisNode = nodes.networkedGestaltNode('X Axis', self.fabnet, filename = '086-005a.py', persistence = self.persistence)
+		self.aAxisNode = nodes.networkedGestaltNode('A Axis', self.fabnet, filename = '086-005a.py', persistence = self.persistence)
 		self.aNode = nodes.compoundNode(self.aAxisNode)
 
 	def initCoordinates(self):
@@ -77,7 +77,7 @@ class virtualMachine(machines.virtualMachine):
 if __name__ == '__main__':
 	stage = virtualMachine(persistenceFile = "test.vmp")
 	#stage.aNode.loadProgram('../../../086-005/086-005a.hex')
-	#stage.aNode.setMotorCurrent(1)
+	stage.aNode.setMotorCurrent(.5)
 
 	stage.aNode.setVelocityRequest(1)
 
@@ -87,18 +87,6 @@ if __name__ == '__main__':
 	context = gp.gp_context_new()
 	camera = gp.check_result(gp.gp_camera_new())
 	gp.check_result(gp.gp_camera_init(camera, context))
-	print('Capturing image')
-	file_path = gp.check_result(gp.gp_camera_capture(
-		camera, gp.GP_CAPTURE_IMAGE, context))
-	print('Camera file path: {0}/{1}'.format(file_path.folder, file_path.name))
-	target = os.path.join('/tmp', file_path.name)
-	print('Copying image to', target)
-	camera_file = gp.check_result(gp.gp_camera_file_get(
-		camera, file_path.folder, file_path.name,
-		gp.GP_FILE_TYPE_NORMAL, context))
-	gp.check_result(gp.gp_file_save(camera_file, target))
-	subprocess.call(['xdg-open', target])
-	gp.check_result(gp.gp_camera_exit(camera, context))
 
 	photoangles = []
 	for i in range(37):
@@ -106,13 +94,28 @@ if __name__ == '__main__':
 	print photoangles
 
 
-	notest = [[0]]
-	for coords in notest:
+	notest = [[0], [10]]
+
+	for coords in photoangles:
 		stage.move(coords, 0)
+
+		print('Capturing image')
+		file_path = gp.check_result(gp.gp_camera_capture(
+			camera, gp.GP_CAPTURE_IMAGE, context))
+		print('Camera file path: {0}/{1}'.format(file_path.folder, file_path.name))
+		target = os.path.join('/tmp', file_path.name)
+		print('Copying image to', target)
+		camera_file = gp.check_result(gp.gp_camera_file_get(
+			camera, file_path.folder, file_path.name,
+			gp.GP_FILE_TYPE_NORMAL, context))
+		gp.check_result(gp.gp_file_save(camera_file, target))
+		subprocess.call(['xdg-open', target])
+
 		status = stage.aAxisNode.spinStatusRequest()
 		while status['stepsRemaining'] > 0:
 			time.sleep(0.001)
 			status = stage.aAxisNode.spinStatusRequest()	
 	
+	gp.check_result(gp.gp_camera_exit(camera, context))
 
 
