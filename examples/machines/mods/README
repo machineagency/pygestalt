@@ -2,7 +2,7 @@ USAGE
 
 Nadya Peek Dec 2016
 
-1: install Websocket and pyserial
+1: install Websocket and pygestalt and pyserial
 npm install ws
 
 [nadya@revolt mods]$ npm install ws
@@ -16,6 +16,10 @@ npm WARN mods No description
 npm WARN mods No repository field.
 npm WARN mods No README data
 npm WARN mods No license field.
+
+git clone http://github.com/nadya/pygestalt
+in this folder:
+sudo python setup.py install
 
 sudo apt-get install python-serial
 (likely you already have this)
