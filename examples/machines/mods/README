@@ -63,6 +63,13 @@ response should be
 then try sending the default path "[[[10,20],[0,0]]]"
 your axes should move.
 
+NOTE
+
+For an example mods program, see prog_example_fabnet_mods.txt
+Load this program into mods.cba.mit.edu with "programs" > "load local program".
+There is a z specified in the move coordinates which is a mismatch with these example virtual machine files
+so this example program is for ILLUSTRATIVE PURPOSES ONLY
+
 
 
 
