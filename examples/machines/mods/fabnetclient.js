@@ -46,7 +46,7 @@ var name = 'fabnet'
 var init = function() {
    mod.address.value = '127.0.0.1'
    mod.port.value = 1234
-   mod.moveargs.value = [[0,0,0]]
+   mod.moveargs.value = [['[[[10,20],[0,0]]]']]
    }
 //
 // inputs

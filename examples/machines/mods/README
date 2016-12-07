@@ -1,0 +1,68 @@
+USAGE
+
+Nadya Peek Dec 2016
+
+1: install Websocket and pyserial
+npm install ws
+
+[nadya@revolt mods]$ npm install ws
+/home/nadya/Version/pygestalt/examples/machines/mods
+└─┬ ws@1.1.1 
+  ├── options@0.0.6 
+  └── ultron@1.0.2 
+
+npm WARN enoent ENOENT: no such file or directory, open '/home/nadya/Version/pygestalt/examples/machines/mods/package.json'
+npm WARN mods No description
+npm WARN mods No repository field.
+npm WARN mods No README data
+npm WARN mods No license field.
+
+sudo apt-get install python-serial
+(likely you already have this)
+
+2: Generate a virtual machine
+Connect 2 pygestalt nodes to your computer
+Run python fabnet_xyaxes.py
+
+[nadya@revolt mods]$ python fabnet_xyaxes.py 
+fabnet_xyaxes.py: Warning: setting persistence without providing a name to the virtual machine can result in a conflict in multi-machine persistence files.
+FABNET: port /dev/ttyUSB0 connected succesfully.
+init controllers, x and y
+X Axis: please identify me on the network.
+***button press***
+X Axis: http://www.fabunit.com/vn/086-005a.py
+X Axis: RUNNING IN APPLICATION MODE
+X Axis: loaded node from:  086-005a.py
+Y Axis: please identify me on the network.
+***button press***
+Y Axis: http://www.fabunit.com/vn/086-005a.py
+Y Axis: RUNNING IN APPLICATION MODE
+Y Axis: loaded node from:  086-005a.py
+
+No moves file provided
+Traceback (most recent call last):
+  File "fabnet_xyaxes.py", line 103, in <module>
+    segs = json.loads(movestr)
+NameError: name 'movestr' is not defined
+
+that error is ok for now.
+
+you should have generated a vmp file
+fabnet2axes.vmp
+
+3: Run fabnetserver
+[nadya@revolt mods]$ node fabnetserver.js 
+listening for connections from 127.0.0.1 on 1234
+
+4: at mods.cba.mit.edu
+select "modules" > "add local module"
+add fabnetclient.js
+press the button "connect to server"
+response should be 
+"connected to 127.0.0.1:1234"
+then try sending the default path "[[[10,20],[0,0]]]"
+your axes should move.
+
+
+
+
