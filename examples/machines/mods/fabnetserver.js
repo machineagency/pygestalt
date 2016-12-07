@@ -39,8 +39,8 @@ wss = new WebSocketServer({port:server_port})
 
 function worker(ws,arg) {
    var child_process = require('child_process')
-   console.log("python fabnet_plotter.py '"+arg+"'")
-   // replace fabnet_plotter with your virtual machine here
+   console.log("python fabnet_xyaxes.py '"+arg+"'")
+   // replace fabnet_xyaxes with your virtual machine here
    child_process.exec("python fabnet_xyaxes.py '"+arg+"'",function(err,stdout,stderr) {
       ws.send(stdout)
       })
