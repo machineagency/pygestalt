@@ -53,6 +53,7 @@ fabnet2axes.vmp
 3: Run fabnetserver
 [nadya@revolt mods]$ node fabnetserver.js 
 listening for connections from 127.0.0.1 on 1234
+NOTE some users report permissions issues here, such that running this server doesn't work with this particular configuration. The fix for this is to change the permissions of this mods folder in the pygestalt examples folder, by typing "chmod 777 ." in the mods folder.
 
 4: at mods.cba.mit.edu
 select "modules" > "add local module"
