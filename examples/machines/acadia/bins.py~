@@ -1,0 +1,27 @@
+import io
+
+sticksize = 36.0
+bins = {}
+
+f = open('lengths.csv','r')
+lengths = {}
+for line in f.readlines():
+	unit = line.split(',')	
+	try:
+		lengths[unit[0]+'A'] = float(unit[1])
+		lengths[unit[0]+'B'] = float(unit[2])
+		lengths[unit[0]+'C'] = float(unit[3])
+		lengths[unit[0]+'D'] = float(unit[4])
+	except:
+		pass
+
+
+def fitsinbin(binnr,part):
+	currsize = 0
+	for item in bins[binnr]:
+		currsize += item
+	if part + currsize > sticksize:
+		return false
+	else
+		return true
+	

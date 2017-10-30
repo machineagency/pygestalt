@@ -1,0 +1,57 @@
+import sys
+import time
+import io
+
+from rotaries import virtualMachine
+rotaries = virtualMachine(persistenceFile = "rotaries.vmp")
+
+
+rotaries.abNode.setVelocityRequest(10)
+
+f = open('rotarypositions.csv','r')
+rotary = []
+for line in f.readlines():
+	idab = line.split(',')	
+	try:
+		rotary.append([float(idab[0]),float(idab[1]),float(idab[2])])
+	except:
+		pass
+
+print
+print "n for next, q for quit\n"
+print
+
+#for move in rotary:
+
+move_idx = 0
+while move_idx < len(rotary):
+        move = rotary[move_idx]
+	akey = sys.stdin.readline()
+	print
+	print "n for next, q for quit\n"
+	print
+	if akey[0] == 'n':
+		print
+		print "moving to this ID:%f"%move[0]
+		print
+		rotaries.move([move[1],move[2]],0)
+		status = rotaries.aAxisNode.spinStatusRequest()
+		while status['stepsRemaining'] > 0:
+		    time.sleep(0.001)
+		    status = rotaries.aAxisNode.spinStatusRequest()
+                move_idx += 1
+	elif akey[0] == 'q':
+                sys.exit()
+
+
+
+
+#while(1):
+#    s1 = sys.stdin.readline()
+#    supercoords = [[float(s1)*3, float(s1)]]
+#    for coords in supercoords:
+#	rotaries.move(coords, 0)
+#	status = rotaries.aAxisNode.spinStatusRequest()
+#	while status['stepsRemaining'] > 0:
+#	    time.sleep(0.001)
+#	    status = rotaries.aAxisNode.spinStatusRequest()	
